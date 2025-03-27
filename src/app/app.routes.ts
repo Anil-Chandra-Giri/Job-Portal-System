@@ -5,6 +5,8 @@ import { SignUpComponent } from './Components/sign-up/sign-up.component';
 import { EmployerDashboardComponent } from './Components/employer-dashboard/employer-dashboard.component';
 import { CompanyProfileComponent } from './Components/company-profile/company-profile.component';
 import { CandidateProfileComponent } from './Components/candidate-profile/candidate-profile.component';
+import { CompanyDashboardComponent } from './Components/company-dashboard/company-dashboard.component';
+import { CandidateDashboardComponent } from './Components/candidate-dashboard/candidate-dashboard.component';
 
 export const routes: Routes = [
     {path:'',component:HomeComponent,pathMatch:'full'},
@@ -12,5 +14,7 @@ export const routes: Routes = [
     {path:'sign-up',component:SignUpComponent,pathMatch:'full'},
     {path:'employer-dashboard',component:EmployerDashboardComponent,pathMatch:'full'},
     {path:'company-profile',component:CompanyProfileComponent,pathMatch:'full'},
-    {path:'candidate-profile',component:CandidateProfileComponent,pathMatch:'full'}
+    {path:'candidate-profile',component:CandidateProfileComponent,pathMatch:'full'},
+    {path:'company-dashboard',component:CompanyDashboardComponent,pathMatch:'full'},
+    {path:'candidate-dashboard',component:CandidateDashboardComponent,pathMatch:'full'}
 ];
