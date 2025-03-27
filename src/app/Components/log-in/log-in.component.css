@@ -1,5 +1,3 @@
-/* General Styles */
-/* Reset styles */
 * {
     margin: 0;
     padding: 0;
@@ -8,35 +6,24 @@
 }
 
 /* Body Styling */
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(135deg, #602e9a, #6181b7);
-}
-
-/* Container */
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100vh;
+    background: linear-gradient(135deg, #602e9a, #6181b7);
 }
-
-
 
 .login-box {
     width: 400px;
     padding: 25px;
-    background: rgba(255, 255, 255, 0.15); /* Keeps transparency */
+    background: rgba(255, 255, 255, 0.15);
     border-radius: 12px;
-    border: 2px solid rgba(255, 255, 255, 0.3); /* Transparent border */
+    border: 2px solid rgba(255, 255, 255, 0.3);
     text-align: center;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); /* Soft glow */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
 }
-
 
 /* Title */
 .login-box h2 {

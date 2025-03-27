@@ -1,39 +1,48 @@
-<p>employer-dashboard works!</p>
 <body>
 
-    <div class="dashboard-container">
-        <aside class="sidebar">
-            <h2>Employer Dashboard</h2>
+    <!-- Sidebar Toggle Checkbox -->
+    <input type="checkbox" id="menu-toggle">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <label for="menu-toggle" class="close-btn">✖</label>
+        <div class="logo">Employer Dashboard</div>
+        <nav>
             <ul>
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Post a Job</a></li>
-                <li><a href="#">Manage Jobs</a></li>
-                <li><a href="#">Applications</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Logout</a></li>
+                <li><a href="#">🏠 Dashboard</a></li>
+                <li><a href="#">📋 Job Listings</a></li>
+                <li><a href="#">👥 Candidates</a></li>
+                <li><a href="#">📊 Analytics</a></li>
+                <li><a href="#">⚙️ Settings</a></li>
             </ul>
-        </aside>
+        </nav>
+    </aside>
 
-        <main class="main-content">
-            <header>
-                <h1>Welcome, Employer</h1>
-            </header>
-            <section class="cards">
-                <div class="card">
-                    <h3>Total Jobs</h3>
-                    <p>12</p>
+    <!-- Main Content -->
+    <main class="content">
+        <!-- Header -->
+        <header class="top-bar">
+            <label for="menu-toggle" class="menu-btn">☰</label>
+            <div class="profile-dropdown">
+                <button class="profile-btn">👤</button>
+                <div class="dropdown-menu">
+                    <a href="#">Profile</a>
+                    <a href="#">Settings</a>
+                    <a href="#">Logout</a>
                 </div>
-                <div class="card">
-                    <h3>New Applications</h3>
-                    <p>8</p>
-                </div>
-                <div class="card">
-                    <h3>Interviews Scheduled</h3>
-                    <p>3</p>
-                </div>
-            </section>
-        </main>
-    </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Overview -->
+        <section class="dashboard-overview">
+            <h2>Welcome, Employer</h2>
+            <div class="stats">
+                <div class="stat-box">📌 Active Jobs <span>5</span></div>
+                <div class="stat-box">📩 Applications <span>20</span></div>
+                <div class="stat-box">🕵️‍♂️ Shortlisted <span>8</span></div>
+                <div class="stat-box">💼 Hired <span>2</span></div>
+            </div>
+        </section>
+    </main>
 
 </body>
-
