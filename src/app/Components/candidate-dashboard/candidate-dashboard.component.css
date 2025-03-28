@@ -106,6 +106,8 @@ nav ul li a:hover {
 /* Footer Styling */
 footer {
     text-align: center;
+    position: fixed;
+    bottom: 0;
     background: #007bff;
     color: white;
     padding: 15px;
