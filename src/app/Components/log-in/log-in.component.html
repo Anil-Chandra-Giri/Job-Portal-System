@@ -2,13 +2,13 @@
 <div class="container">
     <div class="login-box">
         <h2>Login</h2>
-        <form>
+        <form (ngSubmit)="login()">
             <div class="input-box">
-                <input type="email" placeholder="Email ID" required>
+                <input type="Username" name="Username" placeholder="Username" [(ngModel)]="loginDetails.Username" required>
                 <span class="icon"></span>
             </div>
             <div class="input-box">
-                <input type="password" placeholder="Password" required>
+                <input type="password" name="password" placeholder="Password" [(ngModel)]="loginDetails.Password" required>
                 <span class="icon"></span>
             </div>
             <div class="options">
