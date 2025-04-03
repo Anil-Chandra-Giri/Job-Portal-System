@@ -6,6 +6,11 @@ import { CompanyProfileComponent } from './Components/company-profile/company-pr
 import { CandidateProfileComponent } from './Components/candidate-profile/candidate-profile.component';
 import { CompanyDashboardComponent } from './Components/company-dashboard/company-dashboard.component';
 import { CandidateDashboardComponent } from './Components/candidate-dashboard/candidate-dashboard.component';
+import { ApplicantListComponent } from './Components/applicant-list/applicant-list.component';
+import { CompanyJobsComponent } from './Components/company-jobs/company-jobs.component';
+import { AppliedJobsComponent } from './Components/applied-jobs/applied-jobs.component';
+import { AvailableJobsComponent } from './Components/available-jobs/available-jobs.component';
+import { PostJobComponent } from './Components/post-job/post-job.component';
 
 export const routes: Routes = [
     {path:'',component:HomeComponent,pathMatch:'full'},
@@ -14,5 +19,10 @@ export const routes: Routes = [
     {path:'company-profile',component:CompanyProfileComponent,pathMatch:'full'},
     {path:'candidate-profile',component:CandidateProfileComponent,pathMatch:'full'},
     {path:'company-dashboard',component:CompanyDashboardComponent,pathMatch:'full'},
-    {path:'candidate-dashboard',component:CandidateDashboardComponent,pathMatch:'full'}
+    {path:'candidate-dashboard',component:CandidateDashboardComponent,pathMatch:'full'},
+    {path:"applicant-list",component:ApplicantListComponent,pathMatch:'full'},
+    {path:"company-jobs",component:CompanyJobsComponent,pathMatch:'full'},
+    {path:"applied-jobs",component:AppliedJobsComponent,pathMatch:'full'},
+    {path:"available-jobs",component:AvailableJobsComponent,pathMatch:'full'},
+    {path:"post-job",component:PostJobComponent,pathMatch:'full'}
 ];
