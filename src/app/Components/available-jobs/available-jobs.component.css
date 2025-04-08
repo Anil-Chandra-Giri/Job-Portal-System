@@ -26,6 +26,16 @@
     font-size: 1.5rem;
     font-weight: bold;
   }
+  .search-bar {
+    margin-bottom: 20px;
+  }
+  
+  .search-bar input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
   nav ul {
     list-style: none;
     display: flex;
