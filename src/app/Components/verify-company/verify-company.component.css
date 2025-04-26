@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Center container */
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #602e9a, #6181b7);
+  }
+  
+  /* Wrapper for form */
+  .job-post-wrapper {
+    width: 500px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    text-align: center;
+    color: white;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  .job-post-wrapper h2 {
+    margin-bottom: 25px;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  /* Form styling */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  /* Form group */
+  .form-group {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-size: 16px;
+    color: white;
+    margin-bottom: 8px;
+  }
+  
+  /* Input, textarea, and file input styling */
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    padding-left: 40px;
+    font-size: 16px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    transition: all 0.3s ease;
+  }
+  
+  /* Special handling for file input */
+  .form-group input[type="file"] {
+    padding-left: 10px;
+  }
+  
+  /* Focus effects */
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-color: #4caf50;
+    outline: none;
+  }
+  
+  /* Placeholder text */
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  /* Submit button */
+  .submit-btn {
+    background-color: #4caf50;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 14px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .submit-btn:hover {
+    background-color: #388e3c;
+  }
+  
+  /* Error message */
+  .error {
+    color: #ffaaaa;
+    font-size: 14px;
+    margin-top: 5px;
+    text-align: left;
+    padding-left: 10px;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .job-post-wrapper {
+      width: 90%;
+      padding: 20px;
+    }
+  }
+  

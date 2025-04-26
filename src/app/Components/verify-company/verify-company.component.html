@@ -1,0 +1,114 @@
+<div class="container">
+    <div class="job-post-wrapper">
+      <h2>Company Registration</h2>
+      <form [formGroup]="recruiterSignUpForm" (ngSubmit)="recruiterSignUp()" enctype="multipart/form-data">
+  
+        <div class="form-group">
+          <label>Username</label>
+          <input formControlName="Username" type="text" placeholder="Enter username" />
+          <div *ngIf="recruiterSignUpForm.get('Username')?.touched && recruiterSignUpForm.get('Username')?.invalid" class="error">
+            Username is required.
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label>Email</label>
+          <input formControlName="CompanyEmail" type="email" placeholder="Enter company email" />
+          <div *ngIf="recruiterSignUpForm.get('CompanyEmail')?.touched && recruiterSignUpForm.get('CompanyEmail')?.invalid" class="error">
+            Valid email is required.
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label>Password</label>
+          <input formControlName="Password" type="password" placeholder="Enter password" />
+          <div *ngIf="recruiterSignUpForm.get('Password')?.touched && recruiterSignUpForm.get('Password')?.invalid" class="error">
+            Password (min 6 chars) is required.
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label>Company Name</label>
+          <input formControlName="CompanyName" type="text" placeholder="Enter company name" />
+          <div *ngIf="recruiterSignUpForm.get('CompanyName')?.touched && recruiterSignUpForm.get('CompanyName')?.invalid" class="error">
+            Company name is required.
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label>Industry</label>
+          <input formControlName="Industry" type="text" placeholder="Industry (e.g., IT, Finance)" />
+          <div *ngIf="recruiterSignUpForm.get('Industry')?.touched && recruiterSignUpForm.get('Industry')?.invalid" class="error">
+            Industry is required.
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label>Company Website</label>
+          <input formControlName="CompanyWebsite" type="url" placeholder="https://example.com" />
+          <div *ngIf="recruiterSignUpForm.get('CompanyWebsite')?.touched && recruiterSignUpForm.get('CompanyWebsite')?.invalid" class="error">
+            Website is required.
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label>Location</label>
+          <input formControlName="CompanyLocation" type="text" placeholder="Headquarters or location" />
+          <div *ngIf="recruiterSignUpForm.get('CompanyLocation')?.touched && recruiterSignUpForm.get('CompanyLocation')?.invalid" class="error">
+            Location is required.
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label>Company Size</label>
+          <input formControlName="CompanySize" type="number" placeholder="e.g., 100" />
+          <div *ngIf="recruiterSignUpForm.get('CompanySize')?.touched && recruiterSignUpForm.get('CompanySize')?.invalid" class="error">
+            Company size must be at least 1.
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label>About Company</label>
+          <textarea formControlName="AboutCompany" rows="4" placeholder="Brief company description"></textarea>
+          <div *ngIf="recruiterSignUpForm.get('AboutCompany')?.touched && recruiterSignUpForm.get('AboutCompany')?.invalid" class="error">
+            About company is required.
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label>Contact Person Name</label>
+          <input formControlName="ContactPersonName" type="text" placeholder="John Doe" />
+          <div *ngIf="recruiterSignUpForm.get('ContactPersonName')?.touched && recruiterSignUpForm.get('ContactPersonName')?.invalid" class="error">
+            Contact person name is required.
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label>Contact Phone</label>
+          <input formControlName="ContactPhone" type="text" placeholder="+1234567890" />
+          <div *ngIf="recruiterSignUpForm.get('ContactPhone')?.touched && recruiterSignUpForm.get('ContactPhone')?.invalid" class="error">
+            Contact phone is required.
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label>LinkedIn</label>
+          <input formControlName="LinkedIn" type="url" placeholder="LinkedIn URL" />
+          <div *ngIf="recruiterSignUpForm.get('LinkedIn')?.touched && recruiterSignUpForm.get('LinkedIn')?.invalid" class="error">
+            LinkedIn URL is required.
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label>Upload Company Logo</label>
+          <input formControlName="CompanyLogoUrl" type="file" accept="image/*" />
+          <div *ngIf="recruiterSignUpForm.get('CompanyLogoUrl')?.touched && recruiterSignUpForm.get('CompanyLogoUrl')?.invalid" class="error">
+            Company logo is required.
+          </div>
+        </div>
+  
+        <button type="submit" class="submit-btn">Register Company</button>
+      </form>
+    </div>
+  </div>
+  

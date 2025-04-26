@@ -47,9 +47,9 @@ export class LogInComponent {
           console.log(role);
 
           if (role === 'Employer') {
-            this.router.navigateByUrl('company-dashboard');
+            this.router.navigateByUrl('verify-company');
           } else if (role === 'Candidate') {
-            this.router.navigateByUrl('candidate-dashboard');
+            this.router.navigateByUrl('verify-candidate');
           }
 
           alert('Login Successful');

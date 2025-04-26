@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="job-post-wrapper">
+      <h2>Verify Candidate</h2>
+      <form [formGroup]="verifyCandidateForm" (ngSubmit)="verifyCandidate()">
+        
+        <!-- Candidate Name -->
+        <div class="form-group">
+          <label for="candidateName">Candidate Name</label>
+          <input type="text" id="candidateName" formControlName="CandidateName" placeholder="John Doe" />
+          <div *ngIf="verifyCandidateForm.get('CandidateName')?.touched && verifyCandidateForm.get('CandidateName')?.invalid" class="error">
+            <div *ngIf="verifyCandidateForm.get('CandidateName')?.hasError('required')">Candidate name is required.</div>
+            <div *ngIf="verifyCandidateForm.get('CandidateName')?.hasError('pattern')">Please enter a valid name (only letters and spaces allowed).</div>
+          </div>
+        </div>
+  
+        <!-- Candidate Email -->
+        <div class="form-group">
+          <label for="candidateEmail">Candidate Email</label>
+          <input type="email" id="candidateEmail" formControlName="CandidateEmail" placeholder="john.doe@example.com" />
+          <div *ngIf="verifyCandidateForm.get('CandidateEmail')?.touched && verifyCandidateForm.get('CandidateEmail')?.invalid" class="error">
+            <div *ngIf="verifyCandidateForm.get('CandidateEmail')?.hasError('required')">Email is required.</div>
+            <div *ngIf="verifyCandidateForm.get('CandidateEmail')?.hasError('email')">Please enter a valid email address.</div>
+          </div>
+        </div>
+  
+        <!-- Candidate Resume -->
+        <div class="form-group">
+          <label for="candidateResume">Upload Resume</label>
+          <input type="file" id="candidateResume" formControlName="CandidateResume" accept=".pdf,.doc,.docx" />
+          <div *ngIf="verifyCandidateForm.get('CandidateResume')?.touched && verifyCandidateForm.get('CandidateResume')?.invalid" class="error">
+            Please upload a resume.
+          </div>
+        </div>
+  
+        <!-- Candidate LinkedIn -->
+        <div class="form-group">
+          <label for="candidateLinkedIn">LinkedIn Profile</label>
+          <input type="url" id="candidateLinkedIn" formControlName="LinkedInProfile" placeholder="https://linkedin.com/in/johndoe" />
+          <div *ngIf="verifyCandidateForm.get('LinkedInProfile')?.touched && verifyCandidateForm.get('LinkedInProfile')?.invalid" class="error">
+            <div *ngIf="verifyCandidateForm.get('LinkedInProfile')?.hasError('required')">LinkedIn profile URL is required.</div>
+            <div *ngIf="verifyCandidateForm.get('LinkedInProfile')?.hasError('pattern')">Please enter a valid LinkedIn profile URL.</div>
+          </div>
+        </div>
+  
+        <!-- Verify Button -->
+        <button type="submit" class="submit-btn">Verify Candidate</button>
+        
+      </form>
+    </div>
+  </div>
+  
