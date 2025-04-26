@@ -1,32 +1,84 @@
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, inject } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ApiService } from '../../Services/api.service';
-import { Router } from '@angular/router';
-import { login } from '../../Model/login.Model';
+import { Router, RouterModule } from '@angular/router';
+import { jwtDecode, JwtPayload } from 'jwt-decode';
+import { CommonModule } from '@angular/common';
+
+interface CustomJwtPayload extends JwtPayload {
+  role: string;
+}
 
 @Component({
   selector: 'app-log-in',
-  standalone:true,
-  imports: [FormsModule],
+  standalone: true,
+  imports: [RouterModule,CommonModule, ReactiveFormsModule],  // Removed FormsModule
   templateUrl: './log-in.component.html',
-  styleUrl: './log-in.component.css'
+  styleUrls: ['./log-in.component.css']
 })
 export class LogInComponent {
-  loginDetails: login =new login();
-  constructor(private apicallservice:ApiService,private router:Router)
-  {}
-  login()
-  {
-    this.apicallservice.login(this.loginDetails).subscribe(
-      res=>{
-        localStorage.setItem('sessionToken',res.sessionToken);
-        alert("Login Successfully");
-        this.router.navigateByUrl('candidate-dashboard');
+  loginForm: FormGroup;
+
+  private apicallservice = inject(ApiService);
+  private router = inject(Router);
+
+  constructor(private fb: FormBuilder) {
+    this.loginForm = this.fb.group({
+      Username: ['', [Validators.required]],
+      Password: ['', [Validators.required]],
+    });
+  }
+
+  login() {
+    if (this.loginForm.invalid) {
+      this.loginForm.markAllAsTouched();
+      return;
+    }
+
+    // Directly using form values from loginForm
+    const { Username, Password } = this.loginForm.value;
+
+    this.apicallservice.login({ Username, Password }).subscribe(
+      res => {
+        if (res.token) {
+          localStorage.setItem('jwtToken', res.token);
+          console.log(localStorage);
+          const role = this.getRoleFromToken();
+          console.log(role);
+
+          if (role === 'Employer') {
+            this.router.navigateByUrl('company-dashboard');
+          } else if (role === 'Candidate') {
+            this.router.navigateByUrl('candidate-dashboard');
+          }
+
+          alert('Login Successful');
+        } else {
+          alert('Unexpected server response');
+        }
       },
-      err=>{
-        alert("Please check username and password");
+      err => {
+        alert('Please check your username and password.');
       }
     );
   }
 
+  getRoleFromToken(): string {
+    const token = localStorage.getItem('jwtToken');
+    if (!token) {
+      this.router.navigateByUrl('login');
+      return '';
+    }
+  
+    try {
+      const decodedToken: any = jwtDecode(token);
+      const role = decodedToken["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
+      console.log('Decoded Role:', role);
+      return role;
+    } catch (error) {
+      console.error('Token decoding failed:', error);
+      this.router.navigateByUrl('login');
+      return '';
+    }
+  }
 }

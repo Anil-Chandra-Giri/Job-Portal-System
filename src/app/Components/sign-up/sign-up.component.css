@@ -135,3 +135,45 @@ p a:hover {
 .google-btn:hover {
     background: #f1f1f1;
 }
+
+/* Style for the label */
+label[for="role"] {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  /* Style for the select dropdown */
+  select[formControlName="Role"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s;
+  }
+  
+  select[formControlName="Role"]:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  /* Error message for the role field */
+  .error {
+    color: red;
+    font-size: 12px;
+    margin-top: 4px;
+  }
+  
+  /* Styling for the error message when the field is touched and invalid */
+  select[formControlName="Role"]:invalid {
+    border-color: red;
+  }
+  
+  select[formControlName="Role"]:invalid:focus {
+    border-color: red;
+  }
+  

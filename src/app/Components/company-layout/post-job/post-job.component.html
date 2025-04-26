@@ -1,0 +1,104 @@
+<div class="job-post-wrapper">
+    <div class="job-post-form">
+      <h2>Post a New Job</h2>
+      <form onsubmit="addjob()">
+  
+        <div class="form-row single-column">
+          <div class="form-group">
+            <label for="jobTitle" [(ngModel)]="jobData.JobTitle">Job Title</label>
+            <input type="text" id="jobTitle" placeholder="e.g. Software Engineer" />
+          </div>
+        </div>
+  
+        <div class="form-row">
+          <div class="form-group">
+            <label for="jobType">Job Type</label>
+            <select id="jobType" [(ngModel)]="jobData.JobType">
+              <option value="">Select</option>
+              <option>Full-Time</option>
+              <option>Part-Time</option>
+              <option>Contract</option>
+              <option>Internship</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="category">Category</label>
+            <input type="text" id="category" [(ngModel)]="jobData.Category" placeholder="e.g. IT, Design" />
+          </div>
+        </div>
+  
+        <div class="form-row">
+          <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" id="location" [(ngModel)]="jobData.Location" placeholder="e.g. San Francisco" />
+          </div>
+          <div class="form-group">
+            <label for="workType">Work Type</label>
+            <select id="workType" [(ngModel)]="jobData.WorkType">
+              <option value="">Select</option>
+              <option>Remote</option>
+              <option>On-Site</option>
+              <option>Hybrid</option>
+            </select>
+          </div>
+        </div>
+  
+        <div class="form-row single-column">
+          <div class="form-group">
+            <label for="description">Job Description</label>
+            <textarea id="description" rows="5" [(ngModel)]="jobData.Description" placeholder="Write a detailed job overview..."></textarea>
+          </div>
+        </div>
+  
+        <div class="form-row single-column">
+          <div class="form-group">
+            <label for="responsibilities">Responsibilities</label>
+            <textarea id="responsibilities" [(ngModel)]="jobData.Responsibilities" rows="5" placeholder="Key responsibilities for this role..."></textarea>
+          </div>
+        </div>
+  
+        <div class="form-row single-column">
+          <div class="form-group">
+            <label for="requirements">Requirements</label>
+            <textarea id="requirements" [(ngModel)]="jobData.Requirements" rows="5" placeholder="Necessary qualifications or experience..."></textarea>
+          </div>
+        </div>
+  
+        <div class="form-row single-column">
+          <div class="form-group">
+            <label for="skills">Skills Required</label>
+            <textarea id="skills" rows="4" [(ngModel)]="jobData.SkillsRequired" placeholder="e.g. JavaScript, Angular, Teamwork..."></textarea>
+          </div>
+        </div>
+  
+        <div class="form-row">
+          <div class="form-group">
+            <label for="experience">Experience Required (Years)</label>
+            <input type="number" [(ngModel)]="jobData.ExperienceRequired" id="experience" placeholder="e.g. 3" />
+          </div>
+          <div class="form-group">
+            <label for="education">Education Level</label>
+            <input type="text" id="education" [(ngModel)]="jobData.EducationLevel" placeholder="e.g. Bachelor's Degree" />
+          </div>
+        </div>
+  
+        <div class="form-row single-column">
+          <div class="form-group">
+            <label for="salary">Salary Range</label>
+            <input type="text" id="salary" [(ngModel)]="jobData.SalaryRange" placeholder="$60,000 - $80,000" />
+          </div>
+        </div>
+  
+        <div class="form-row single-column">
+          <div class="form-group">
+            <label for="deadline">Application Deadline</label>
+            <input type="date" [(ngModel)]="jobData.Deadline" id="deadline" />
+          </div>
+        </div>
+  
+        <button type="submit" class="submit-btn">Post Job</button>
+  
+      </form>
+    </div>
+  </div>
+  

@@ -1,28 +1,62 @@
-
-    <div class="body">
+<div class="body">
     <div class="signup-box">
-        <div class="form-box">
-            <h2>Sign Up</h2>
-            <form (ngSubmit)="signup()">
-                <div class="input-box">
-                    <input type="text" name="Username" placeholder="Username" [(ngModel)]="signupdetails.Username" required>
-                </div>
-                <div class="input-box">
-                    <input type="email" name="Email" placeholder="Email ID" [(ngModel)]="signupdetails.Email" required>
-                </div>
-                <div class="input-box">
-                    <input type="password" name="Password" [(ngModel)]="signupdetails.Password" required>
-                </div>
-                <div class="input-box">
-                    <input type="password" name="ConfirmPassword" placeholder="Confirm Password" [(ngModel)]="ConfirmPassword" required>
-                </div>
-                <button type="submit" class="btn">Sign Up</button>
-                <p>Already have an account? <a href="log-in">Login</a></p>
-                <button type="button" class="google-btn">
-                        <img src="https://img.icons8.com/color/16/000000/google-logo.png" alt="Google Logo">
-                        Sign up with Google
-                          </button>
-            </form>
-        </div>
+      <div class="form-box">
+        <h2>Sign Up</h2>
+  
+        <!-- ✅ Apply formGroup here -->
+        <form [formGroup]="signUpForm" (ngSubmit)="signup()">
+  
+          <label for="role">Role</label>
+          <select formControlName="Role" required>
+            <option value="">Select Role</option>
+            <option value="Candidate">Candidate</option>
+            <option value="Employer">Employer</option>
+          </select>
+          <div *ngIf="signUpForm.get('Role')?.touched && signUpForm.get('Role')?.invalid" class="error">
+            Role is required.
+          </div>
+  
+          <div class="input-box">
+            <input type="text" formControlName="Username" placeholder="Username">
+            <div *ngIf="signUpForm.get('Username')?.touched && signUpForm.get('Username')?.invalid" class="error">
+              <small *ngIf="signUpForm.get('Username')?.errors?.['required']">Username is required.</small>
+              <small *ngIf="signUpForm.get('Username')?.errors?.['minlength']">Minimum 3 characters.</small>
+            </div>
+          </div>
+  
+          <div class="input-box">
+            <input type="email" formControlName="Email" placeholder="Email ID">
+            <div *ngIf="signUpForm.get('Email')?.touched && signUpForm.get('Email')?.invalid" class="error">
+              <small *ngIf="signUpForm.get('Email')?.errors?.['required']">Email is required.</small>
+              <small *ngIf="signUpForm.get('Email')?.errors?.['email']">Invalid email format.</small>
+            </div>
+          </div>
+  
+          <div class="input-box">
+            <input type="password" formControlName="Password" placeholder="Password">
+            <div *ngIf="signUpForm.get('Password')?.touched && signUpForm.get('Password')?.invalid" class="error">
+              <small *ngIf="signUpForm.get('Password')?.errors?.['required']">Password is required.</small>
+              <small *ngIf="signUpForm.get('Password')?.errors?.['minlength']">Minimum 6 characters.</small>
+            </div>
+          </div>
+  
+          <div class="input-box">
+            <input type="password" formControlName="ConfirmPassword" placeholder="Confirm Password">
+            <div *ngIf="signUpForm.errors?.['passwordMismatch'] && signUpForm.get('ConfirmPassword')?.touched" class="error">
+              Passwords do not match.
+            </div>
+          </div>
+  
+          <button type="submit" class="btn">Sign Up</button>
+  
+          <p>Already have an account? <a routerLink="/log-in">Login</a></p>
+  
+          <button type="button" class="google-btn">
+            <img src="https://img.icons8.com/color/16/000000/google-logo.png" alt="Google Logo">
+            Sign up with Google
+          </button>
+        </form>
+      </div>
     </div>
-</div>
+  </div>
+  

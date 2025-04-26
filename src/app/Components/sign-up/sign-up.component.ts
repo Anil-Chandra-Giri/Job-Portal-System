@@ -1,44 +1,66 @@
 import { Component } from '@angular/core';
-import { SignUp } from '../../Model/sign-up.Model';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { ApiService } from '../../Services/api.service';
 import { Router } from '@angular/router';
-
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up',
-  standalone:true,
-  imports: [FormsModule],
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule, FormsModule],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.css'
 })
 export class SignUpComponent {
-  signupdetails : SignUp = new SignUp();
-  ConfirmPassword: string="";
-  constructor(private apicallservice:ApiService,private router:Router)
-  {}
-  signup()
-  {
-    if (this.signupdetails.Password !== this.ConfirmPassword) {
-      alert('Passwords do not match!');
+  signUpForm: FormGroup;
+
+  constructor(private fb: FormBuilder, private apicallservice: ApiService, private router: Router) {
+    this.signUpForm = this.fb.group({
+      Username: ['', [Validators.required, Validators.minLength(3)]],
+      Email: ['', [Validators.required, Validators.email]],
+      Password: ['', [Validators.required, Validators.minLength(6)]],
+      ConfirmPassword: ['', Validators.required],
+      Role: ['', Validators.required]
+    }, { validators: this.passwordMatchValidator });
+  }
+
+  // Custom validator to check if passwords match
+  passwordMatchValidator: ValidatorFn = (group: AbstractControl): ValidationErrors | null => {
+    const password = group.get('Password')?.value;
+    const confirmPassword = group.get('ConfirmPassword')?.value;
+    return password === confirmPassword ? null : { passwordMismatch: true };
+  };
+
+  signup() {
+    if (this.signUpForm.invalid) {
+      this.signUpForm.markAllAsTouched();
       return;
     }
 
-    this.apicallservice.signup(this.signupdetails).subscribe(
-      res => {
-      alert('Signup successful');
-      this.router.navigate(['log-in']);
-    },   err => {
-      console.error('Signup failed:', err);  // Log the error for debugging
-      if (err.status === 400) {
-        alert('Invalid data. Please check your input.');
-      } else if (err.status === 500) {
-        alert('Server error. Please try again later.');
-      } else {
-        alert('Signup failed. Please try again.');
+    const formValue = this.signUpForm.value;
+    const signupdetails = {
+      Username: formValue.Username,
+      Email: formValue.Email,
+      Password: formValue.Password,
+      Role: formValue.Role
+    };
+
+    this.apicallservice.signup(signupdetails).subscribe({
+      next: () => {
+        alert('Signup successful');
+        this.router.navigate(['log-in']);
+      },
+      error: err => {
+        console.error('Signup failed:', err);
+        if (err.status === 400) {
+          alert('Invalid data. Please check your input.');
+        } else if (err.status === 500) {
+          alert('Server error. Please try again later.');
+        } else {
+          alert('Signup failed. Please try again.');
+        }
       }
     });
-    
   }
-
 }
