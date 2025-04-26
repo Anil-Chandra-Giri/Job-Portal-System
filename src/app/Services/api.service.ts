@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SignUp } from '../Model/signup/sign-up.Model';
 import { login } from '../Model/login/login.Model';
+import { Postjob } from '../Model/postjob/postjob.Model';
 
 
 @Injectable({
@@ -21,6 +22,10 @@ export class ApiService {
   {
     return this.http.post("Https://localhost:7086/api/SignUp/Register",signup);
 
+  }
+
+  postjob(postjob:Postjob):Observable<any>{
+    return this.http.post("https://localhost:7086/api/JobPosting",postjob,{responseType:'json'})
   }
 }
 

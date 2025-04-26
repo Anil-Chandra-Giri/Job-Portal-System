@@ -18,6 +18,7 @@ import { AppliedJobsComponent } from './Components/candidate-layout/applied-jobs
 import { AvailableJobsComponent } from './Components/candidate-layout/available-jobs/available-jobs.component';
 import { CandidateLayoutComponent } from './Components/candidate-layout/candidate-layout.component';
 import { CandidateProfileComponent } from './Components/candidate-layout/candidate-profile/candidate-profile.component';
+import { ApplyComponent } from './Components/apply/apply.component';
 
 export const routes: Routes = [
     {path:'',component:HomeComponent,pathMatch:'full'},
@@ -27,6 +28,7 @@ export const routes: Routes = [
     {path:'candidate-dashboard',component:CandidateDashboardComponent,pathMatch:'full'},
     {path:"company-jobs",component:CompanyJobsComponent,pathMatch:'full'},
     {path:"post-job",component:PostJobComponent,pathMatch:'full'},
+    {path:"apply",component:ApplyComponent,pathMatch:'full'},
     {
         path:'Candidate',
         component:CandidateLayoutComponent,

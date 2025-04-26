@@ -1,0 +1,86 @@
+<div class="container">
+    <div class="apply-form-wrapper">
+      <h2>Apply for the Job</h2>
+      <form [formGroup]="applyForm" (ngSubmit)="submitApplication()">
+        <!-- Full Name -->
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" formControlName="FullName" placeholder="e.g. John Doe" />
+          <div class="error" *ngIf="applyForm.get('FullName')?.touched && applyForm.get('FullName')?.invalid">
+            <small *ngIf="applyForm.get('FullName')?.errors?.['required']">Full Name is required.</small>
+            <small *ngIf="applyForm.get('FullName')?.errors?.['minlength']">Minimum 3 characters required.</small>
+          </div>
+        </div>
+  
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" formControlName="Email" placeholder="e.g. john.doe@example.com" />
+          <div class="error" *ngIf="applyForm.get('Email')?.touched && applyForm.get('Email')?.invalid">
+            <small *ngIf="applyForm.get('Email')?.errors?.['required']">Email is required.</small>
+            <small *ngIf="applyForm.get('Email')?.errors?.['email']">Invalid email format.</small>
+          </div>
+        </div>
+  
+        <!-- Phone Number -->
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="text" id="phone" formControlName="Phone" placeholder="e.g. +1 (555) 123-4567" />
+          <div class="error" *ngIf="applyForm.get('Phone')?.touched && applyForm.get('Phone')?.invalid">
+            <small *ngIf="applyForm.get('Phone')?.errors?.['required']">Phone number is required.</small>
+            <small *ngIf="applyForm.get('Phone')?.errors?.['pattern']">Invalid phone number format.</small>
+          </div>
+        </div>
+  
+        <!-- Resume Upload -->
+        <div class="form-group">
+          <label for="resume">Upload Resume</label>
+          <input type="file" id="resume" (change)="onFileChange($event)" />
+          <div class="error" *ngIf="applyForm.get('Resume')?.touched && applyForm.get('Resume')?.invalid">
+            <small *ngIf="applyForm.get('Resume')?.errors?.['required']">Resume is required.</small>
+          </div>
+        </div>
+  
+        <!-- Cover Letter -->
+        <div class="form-group">
+          <label for="coverLetter">Cover Letter</label>
+          <textarea id="coverLetter" formControlName="CoverLetter" rows="5" placeholder="Write a brief cover letter..."></textarea>
+          <div class="error" *ngIf="applyForm.get('CoverLetter')?.touched && applyForm.get('CoverLetter')?.invalid">
+            <small *ngIf="applyForm.get('CoverLetter')?.errors?.['required']">Cover letter is required.</small>
+          </div>
+        </div>
+  
+        <!-- Job Type -->
+        <div class="form-group">
+          <label for="jobType">Job Type</label>
+          <select id="jobType" formControlName="JobType">
+            <option value="">Select</option>
+            <option>Full-Time</option>
+            <option>Part-Time</option>
+            <option>Contract</option>
+          </select>
+          <div class="error" *ngIf="applyForm.get('JobType')?.touched && applyForm.get('JobType')?.invalid">
+            <small *ngIf="applyForm.get('JobType')?.errors?.['required']">Job type is required.</small>
+          </div>
+        </div>
+  
+        <!-- Work Type -->
+        <div class="form-group">
+          <label for="workType">Work Type</label>
+          <select id="workType" formControlName="WorkType">
+            <option value="">Select</option>
+            <option>Remote</option>
+            <option>On-Site</option>
+            <option>Hybrid</option>
+          </select>
+          <div class="error" *ngIf="applyForm.get('WorkType')?.touched && applyForm.get('WorkType')?.invalid">
+            <small *ngIf="applyForm.get('WorkType')?.errors?.['required']">Work type is required.</small>
+          </div>
+        </div>
+  
+        <!-- Submit Button -->
+        <button type="submit" class="submit-btn" [disabled]="applyForm.invalid">Submit Application</button>
+      </form>
+    </div>
+  </div>
+  

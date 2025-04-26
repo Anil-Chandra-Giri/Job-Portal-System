@@ -1,101 +1,164 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-  }
-  .dashboard-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #602e9a, #6181b7);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #007bff;
-    padding: 15px 30px;
-    width: 100%;
-    color: white;
-    border-bottom: 2px solid #fff;
-  }
-  .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  nav ul {
-    list-style: none;
-    display: flex;
-  }
-  nav ul li {
-    margin: 0 15px;
-  }
-  nav ul li a {
-    color: white;
-    text-decoration: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    transition: 0.3s;
-  }
-  nav ul li a:hover {
-    background: rgba(255, 255, 255, 0.2);
-  }
-  .form-container {
-    background: rgba(255, 255, 255, 0.2);
+
+/* Container for centering the form */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #602e9a, #6181b7);
+}
+
+/* Wrapper for job posting form */
+.job-post-wrapper {
+  width: 500px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.15); /* Translucent background */
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  text-align: center;
+  color: white;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.job-post-wrapper h2 {
+  margin-bottom: 25px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Styling for form-group (input container) */
+.form-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 16px;
+  color: white;
+  margin-bottom: 8px;
+}
+
+/* Inputs and Select styling */
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  padding-left: 40px;
+  font-size: 16px;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+/* Custom dropdown arrow */
+.form-group select {
+  appearance: none;
+  background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20fill%3D%22%23FFF%22%20d%3D%22M5%209l5%205%205-5%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+}
+
+/* Focus state for inputs */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-color: #4caf50;
+  outline: none;
+}
+
+/* Placeholder Text Styling */
+.form-group input::placeholder,
+.form-group select::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Button Styling */
+.submit-btn {
+  background-color: #4caf50;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 14px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #388e3c;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .job-post-wrapper {
+    width: 90%;
     padding: 20px;
-    border-radius: 12px;
-    color: white;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
-    margin-top: 20px;
-    width: 50%;
   }
-  .title {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  label {
-    margin-top: 10px;
-  }
-  input, textarea {
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: none;
-    font-size: 1rem;
-    width: 100%;
-  }
-  .btn {
-    background: rgb(18, 17, 17);
-    color: #007bff;
-    padding: 10px;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: 0.3s;
-    border: none;
-    margin-top: 20px;
-    cursor: pointer;
-  }
-  .btn:hover {
-    background: #0056b3;
-    color: white;
-  }
-  footer {
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    background: #007bff;
-    color: white;
-    padding: 15px;
-    margin-top: 40px;
-    width: 100%;
-    font-size: 1rem;
-    border-top: 2px solid #fff;
+}
+/* Custom styling for select dropdown options */
+.form-group select {
+  appearance: none;
+  background-color: rgba(255, 255, 255, 0.2); /* Slightly transparent background for select */
+  color: white; /* Text color */
+  border-radius: 25px;
+  border: 2px solid rgba(255, 255, 255, 0.4); /* Light border */
+  padding: 12px;
+  padding-left: 40px;
+  font-size: 16px;
+  font-weight: 500;
+  background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20fill%3D%22%23FFF%22%20d%3D%22M5%209l5%205%205-5%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+  transition: all 0.3s ease;
+}
+
+/* Dropdown options (e.g., Full-Time, Part-Time) */
+.form-group select option {
+  background-color: rgba(0, 0, 0, 0.5); /* Dark background for options */
+  color: white; /* White text color */
+  padding: 10px;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+/* Hover effect for options */
+.form-group select option:hover {
+  background-color: rgba(0, 0, 0, 0.7); /* Darker background when hovering over an option */
+}
+
+/* Focus state for select */
+.form-group select:focus {
+  background-color: rgba(255, 255, 255, 0.3); /* Lighter background on focus */
+  border-color: #4caf50; /* Green border on focus */
+  outline: none;
+}
+
+/* Hover effect on select */
+.form-group select:hover {
+  background-color: rgba(255, 255, 255, 0.25); /* Slightly darker background on hover */
 }
