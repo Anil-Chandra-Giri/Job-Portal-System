@@ -16,14 +16,10 @@ export class VerifyCompanyComponent {
 
   constructor(private fb: FormBuilder, private apiService: ApiService, private router: Router) {
     this.recruiterSignUpForm = this.fb.group({
-      Username: ['', Validators.required],
-      CompanyEmail: ['', [Validators.required, Validators.email]],
-      Password: ['', [Validators.required, Validators.minLength(6)]],
       CompanyName: ['', Validators.required],
       Industry: ['', Validators.required],
       CompanyWebsite: ['', Validators.required],
       CompanyLocation: ['', Validators.required],
-      CompanySize: ['', [Validators.required, Validators.min(1)]],
       AboutCompany: ['', Validators.required],
       ContactPersonName: ['', Validators.required],
       ContactPhone: ['', [Validators.required]],

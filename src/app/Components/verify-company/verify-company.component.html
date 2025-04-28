@@ -2,30 +2,7 @@
     <div class="job-post-wrapper">
       <h2>Company Registration</h2>
       <form [formGroup]="recruiterSignUpForm" (ngSubmit)="recruiterSignUp()" enctype="multipart/form-data">
-  
-        <div class="form-group">
-          <label>Username</label>
-          <input formControlName="Username" type="text" placeholder="Enter username" />
-          <div *ngIf="recruiterSignUpForm.get('Username')?.touched && recruiterSignUpForm.get('Username')?.invalid" class="error">
-            Username is required.
-          </div>
-        </div>
-  
-        <div class="form-group">
-          <label>Email</label>
-          <input formControlName="CompanyEmail" type="email" placeholder="Enter company email" />
-          <div *ngIf="recruiterSignUpForm.get('CompanyEmail')?.touched && recruiterSignUpForm.get('CompanyEmail')?.invalid" class="error">
-            Valid email is required.
-          </div>
-        </div>
-  
-        <div class="form-group">
-          <label>Password</label>
-          <input formControlName="Password" type="password" placeholder="Enter password" />
-          <div *ngIf="recruiterSignUpForm.get('Password')?.touched && recruiterSignUpForm.get('Password')?.invalid" class="error">
-            Password (min 6 chars) is required.
-          </div>
-        </div>
+
   
         <div class="form-group">
           <label>Company Name</label>
@@ -56,14 +33,6 @@
           <input formControlName="CompanyLocation" type="text" placeholder="Headquarters or location" />
           <div *ngIf="recruiterSignUpForm.get('CompanyLocation')?.touched && recruiterSignUpForm.get('CompanyLocation')?.invalid" class="error">
             Location is required.
-          </div>
-        </div>
-  
-        <div class="form-group">
-          <label>Company Size</label>
-          <input formControlName="CompanySize" type="number" placeholder="e.g., 100" />
-          <div *ngIf="recruiterSignUpForm.get('CompanySize')?.touched && recruiterSignUpForm.get('CompanySize')?.invalid" class="error">
-            Company size must be at least 1.
           </div>
         </div>
   
